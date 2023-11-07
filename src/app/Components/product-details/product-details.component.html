@@ -1,0 +1,113 @@
+<!-- <div *ngIf="product">
+    <p>Name: {{product.name}}</p>
+    <p>price: {{product.price}}</p>
+    <p>expire date: {{product.expiryDate}}</p>
+
+</div>
+
+<button class="d-flex justify-content-end btn btn-orange" (click)="deleteProduct()">delete</button>
+
+<div>
+ -->
+
+    
+ <div class="d-flex justify-content-center m-3">
+    <div class="w-50">
+      <h3 class="text-center">Product Details</h3>
+      <div class="card" style="border: 2px solid rgb(9, 9, 8)">
+        <img class="card-img-top" src="/assets/goodsmarticonpng.png" alt="Card image cap" />
+        <div class="card-body" style="background-color: orange; color: white">
+            <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h2 class="product-title">{{ product.name }}</h2>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <h4 class="property-title">Price:</h4>
+                      </div>
+                      <div class="col-md-6">
+                        <span class="property-value">{{ product.price }} $</span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <h4 class="property-title">Expiry Date:</h4>
+                      </div>
+                      <div class="col-md-6">
+                        <span class="property-value">{{ product.expiryDate }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+          <div class="d-flex justify-content-around"> 
+            <button class="btn btn-dark w-50" (click)="deleteProduct()">Delete</button>
+            <button type="button" class="btn btn-dark w-50" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Edit</button>          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 " id="exampleModalLabel">Edit Product</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid w-100 h-75 ">
+          <div class="row m-3 ">
+        <div class="d-flex align-items-center justify-content-center">
+        <div class="container-medium  h5 p-3 ">
+          <form class="w-100">
+            <div class="form-group row">
+              <label for="name" class="col-sm-3 col-form-label">Name</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name" required #name>
+              </div>
+            </div>
+          
+            <div class="form-group row">
+              <label for="price" class="col-sm-3 col-form-label">Price</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control" id="price" name="price" placeholder="Price" required #price>
+              </div>
+            </div>
+          </form>
+          
+        </div>
+        </div>
+      </div>
+      <div class="modal-footer ">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-orange" (click)="updateProduct(name.value,price.value)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

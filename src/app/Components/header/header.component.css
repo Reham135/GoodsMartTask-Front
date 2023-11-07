@@ -1,0 +1,10 @@
+.btn-orange {
+    background-color: #FFA500; /* Use the hexadecimal color code for orange */
+    color: #fff; /* Set the text color to white or a contrasting color */
+  }
+  
+  .btn-orange:hover {
+    background-color: #FF8C00; /* Change the background color on hover */
+  }
+
+  

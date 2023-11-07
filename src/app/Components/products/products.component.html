@@ -1,0 +1,54 @@
+<!-- <div *ngFor="let product of products">
+  <h5 class="font-weight-semibold mb-2 text-white">
+    <a [routerLink]="['/Products', product.id]"> {{ product.name }}</a>
+  </h5>
+</div> -->
+
+<div class="container mt-2">
+  <div class="row">
+    <div
+      *ngFor="
+        let product of products
+          | paginate
+            : {
+                id: 'product-pagination',
+                itemsPerPage: countPerPage,
+                currentPage: page,
+                totalItems: totalCount
+              }
+      "
+      class="col-md-4 mb-4"
+    >
+      <div class="card " style="border: 2px solid rgb(9, 9, 8)">
+        <img
+          class="card-img-top"
+          src="/assets/goodsmarticonpng.png"
+          alt="Card image cap"
+        />
+        <div class="card-body" style="background-color: orange; color: white">
+          <div class="row">
+            <div class="col-md-6">
+              <h5 class="card-title font-weight-semibold" style="color: white">
+                Name: {{ product.name }}
+              </h5>
+            </div>
+            <div class="col-md-6">
+              <h4 class="mb-0 font-weight-semibold text-right">
+                Price: {{ product.price }}$
+              </h4>
+            </div>
+          </div>
+          <a [routerLink]="['/Products', product.id]" class="btn btn-dark w-100"
+            >Details</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pagination-controls
+  (pageChange)="getAllPaginationProducts($event)"
+  id="product-pagination"
+  class="text-center mt-4"
+></pagination-controls>

@@ -1,0 +1,74 @@
+<!-- <form>
+    <input type="text" #name placeholder="Name">
+    <input type="number" #price placeholder="Price">
+    <input type="date"#expiryDate placeholder="Expiry Date">
+    <input type="button"  value="Add" (click)="Add(name.value,price.value,expiryDate.value)">
+</form>  -->
+
+
+
+<div class="container-fluid w-100 h-75">
+  <div class="row m-3">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="container-medium h5 w-50 p-3">
+        <form (ngSubmit)="Add()">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control m-1" [(ngModel)]="name" name="name" placeholder="Name must be between 5 and 50 charachers" required maxlength="50">
+          </div>
+          <div *ngIf="name&&name.length<5">
+            <p class="text-muted">Please Enter a Valid Name</p>
+          </div>
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control m-1" [(ngModel)]="price" name="price" placeholder="Price must be between 0 and 1000000" required maxlength="7">
+          </div>
+          <div *ngIf="price > 1000000||price<0&&price">
+            <p class="text-muted">Please Enter a Valid Name</p>
+          </div>
+          <div class="form-group">
+            <label for="expiryDate">Expiry Date</label>
+            <input type="date" class="form-control m-1" [(ngModel)]="expiryDate" name="expiryDate" placeholder="Expiry Date" required>
+          </div>
+          
+          <button type="submit" class="btn btn-dark w-100 mt-3">Add</button>
+        </form>
+      </div>
+    </div>
+  </div></div> 
+
+
+
+
+
+
+
+
+
+
+  <!-- <div class="container-fluid w-100 h-75 ">
+  <div class="row m-3 ">
+<div class="d-flex align-items-center justify-content-center">
+<div class="container-medium  h5 w-50 p-3 ">
+<form (ngSubmit)="Add(name.value, price.value, expiryDate.value)" >
+    <div class="form-group ">
+      <label for="name">Name</label>
+      <input type="text" class="form-control m-1"  #name placeholder="Name"required maxlength="50">
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" class="form-control m-1" #price placeholder="Price"required maxlength="7">
+    </div>
+    <div *ngIf="+price>1000000">
+      <p style="color: red;">price not valid</p>
+    </div>
+    <div class="form-group">
+      <label for="expiryDate">Expiry Date</label>
+      <input type="date" class="form-control m-1"  #expiryDate placeholder="Expiry Date" required>
+    </div>
+    <button type="submit" class="btn btn-dark w-100 mt-3">Add</button>
+  </form>
+</div>
+</div>
+</div> 
+</div>-->
