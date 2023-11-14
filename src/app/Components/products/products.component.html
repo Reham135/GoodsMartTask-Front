@@ -28,13 +28,13 @@
         <div class="card-body" style="background-color: orange; color: white">
           <div class="row">
             <div class="col-md-6">
-              <h5 class="card-title font-weight-semibold" style="color: white">
-                Name: {{ product.name }}
-              </h5>
+              <h4 class="card-title font-weight-semibold" style="color: white">
+                Name: {{ product.name|uppercase }}
+              </h4>
             </div>
             <div class="col-md-6">
               <h4 class="mb-0 font-weight-semibold text-right">
-                Price: {{ product.price }}$
+                Price: {{ product.price |currency:'USD'}}
               </h4>
             </div>
           </div>

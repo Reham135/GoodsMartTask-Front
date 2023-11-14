@@ -13,8 +13,9 @@ import { ProductDetailsComponent } from './Components/product-details/product-de
 import { ErrorComponent } from './Components/error/error.component';
 import { AddProductComponent } from './Components/add-product/add-product.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
-  declarations: [
+  declarations: [        /*all created components should be imported here*/
     AppComponent,
     ProductsComponent,
     HeaderComponent,
@@ -26,11 +27,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    RouterModule,
-    NgxPaginationModule
+    AppRoutingModule,      
+    FormsModule,          /* for 2 way binding */
+    HttpClientModule,     /*for service dependecy injection*/
+    RouterModule,         /*for routing */
+    NgxPaginationModule, BrowserAnimationsModule   /*for pagination*/
   ],
   providers: [],
   bootstrap: [AppComponent]
