@@ -5,7 +5,7 @@ import { ProductDetailsComponent } from './Components/product-details/product-de
 import { ErrorComponent } from './Components/error/error.component';
 import { AddProductComponent } from './Components/add-product/add-product.component';
 
-const routes: Routes = [
+const routes: Routes = [ //First-match-wins strategy
 {path:"",component:ProductsComponent},
 {path:"Products",component:ProductsComponent},
 {path:"Products/:id",component:ProductDetailsComponent},

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/Services/product.service';
 import { Router } from '@angular/router';
+import { ProductDetailsDto } from 'src/app/Dtos/ProductDetailsDto';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ProductDetailsComponent implements OnInit {
   ID = 0;
-  product: any;
+  product!: ProductDetailsDto;
   name:any;
   price:any;
 
@@ -54,14 +55,14 @@ export class ProductDetailsComponent implements OnInit {
     const confirmDelete = window.confirm('Are you sure you want to delete this product?');
   
     if (confirmDelete) {
-      this.myService.DeleteProduct(this.ID).subscribe(
-        () => {
+      this.myService.DeleteProduct(this.ID).subscribe({
+        next: () => {
           this.router.navigate(['/']);
         },
-        (error) => {
+        error:(error) => {
           console.log(error);
         }
-      );
+    });
     }
   }
   

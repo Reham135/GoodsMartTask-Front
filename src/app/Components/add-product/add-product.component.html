@@ -7,7 +7,46 @@
 
 
 
+
+
 <div class="container-fluid w-100 h-75">
+  <div class="row m-3">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="container-medium h5 w-50 p-3">
+        <form (ngSubmit)="Add()">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control m-1" [(ngModel)]="newProduct.name" name="name" placeholder="Name must be between 5 and 50 charachers" required maxlength="50">
+          </div>
+          <div *ngIf="newProduct.name&&newProduct.name.length<5">
+            <p class="text-muted">Please Enter a Valid Name</p>
+          </div>
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control m-1" [(ngModel)]="newProduct.price" name="price" placeholder="Price must be between 0 and 1000000" required maxlength="7">
+          </div>
+          <div *ngIf="newProduct.price > 1000000||newProduct.price<0&&newProduct.price">
+            <p class="text-muted">Please Enter a Valid Price</p>
+          </div>
+          <div class="form-group">
+            <label for="expiryDate">Expiry Date</label>
+            <input type="date" class="form-control m-1" [(ngModel)]="newProduct.expiryDate" name="expiryDate" placeholder="Expiry Date" required>
+          </div>
+          
+          <button type="submit" class="btn btn-dark w-100 mt-3">Add</button>
+        </form>
+      </div>
+    </div>
+  </div></div> 
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid w-100 h-75">
   <div class="row m-3">
     <div class="d-flex align-items-center justify-content-center">
       <div class="container-medium h5 w-50 p-3">
@@ -24,7 +63,7 @@
             <input type="number" class="form-control m-1" [(ngModel)]="price" name="price" placeholder="Price must be between 0 and 1000000" required maxlength="7">
           </div>
           <div *ngIf="price > 1000000||price<0&&price">
-            <p class="text-muted">Please Enter a Valid Name</p>
+            <p class="text-muted">Please Enter a Valid Price</p>
           </div>
           <div class="form-group">
             <label for="expiryDate">Expiry Date</label>
@@ -35,7 +74,7 @@
         </form>
       </div>
     </div>
-  </div></div> 
+  </div></div>  -->
 
 
 

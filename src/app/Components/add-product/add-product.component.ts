@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductService } from 'src/app/Services/product.service';
 import { Router } from '@angular/router';
+import { ProductAddDto } from 'src/app/Dtos/ProductAddDto';
 
 @Component({
   selector: 'app-add-product',
@@ -10,13 +11,44 @@ import { Router } from '@angular/router';
 export class AddProductComponent {
   constructor(public myService: ProductService, private router: Router) {}
 
-name:string="";
+
+
+
+
+
+  newProduct:ProductAddDto={}as ProductAddDto
+
+  Add() {
+    if (this.newProduct.name.length>=5&&this.newProduct.name.length<=50&& this.newProduct.price >= 0 && this.newProduct.price <= 1000000 ) {
+      console.log("if succeeded")
+      console.log(this.newProduct)
+      this.myService.AddProduct(this.newProduct).subscribe({
+        next: () => {
+          this.router.navigate(['/']);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }
+  } }
+
+
+
+
+
+
+
+
+
+
+/* name:string="";
 price:number=0;
 expiryDate=new Date;
 Add() {
   if (this.name.length>=5&&this.name.length<=50&& this.price >= 0 && this.price <= 1000000 ) {
     console.log("if succeeded")
-    let newProduct = { name: this.name, price: this.price, expiryDate: this.expiryDate };
+    let newProduct:ProductAddDto = { name: this.name, price: this.price, expiryDate: this.expiryDate };
     console.log(newProduct)
     this.myService.AddProduct(newProduct).subscribe({
       next: () => {
@@ -27,7 +59,7 @@ Add() {
       },
     });
   }
-} }
+} } */
 
   
 
